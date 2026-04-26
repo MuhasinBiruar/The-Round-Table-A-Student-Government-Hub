@@ -164,25 +164,20 @@ export default function ParticipatePage() {
             <div className="flex flex-col gap-5">
               <p className="text-slate-600 leading-relaxed text-[15px] md:text-base">
                 SAMAHAN, the Samahan ng mga Mag-aaral ng Pamantasang Ateneo de Davao, was
-                established as an autonomous student government guided by Jesuit, Filipino,
-                and Mindanaoan principles (SAMAHAN, 2025). It champions real advocacies such
-                as climate action, quality education, holistic health, youth empowerment,
-                SOGIESC rights, and good governance (SAMAHAN, 2025). But those advocacies only
-                carry weight when the students they represent actually show up. A student
-                government elected by few speaks for few. When participation is low, SAMAHAN&apos;s
-                ability to credibly negotiate with the administration, secure student services,
-                and drive institutional change is fundamentally weakened because its mandate is thin.
-              </p>
-              <p className="text-slate-600 leading-relaxed text-[15px] md:text-base">
-                Low voter turnout is not unique to ADDU. It is a crisis across Philippine higher
-                education institutions. In 2024, Far Eastern University saw its voter turnout drop
-                from 44.79% to 36.36%, and the University of the Philippines Manila recorded a
-                37.70% voter participation rate, its lowest in 25 years (The Guidon, 2025). Former
-                Sanggunian President TJ Alcantara attributes this disengagement to a sense of
-                complacency, where students assume that programs like academic subsidies and
-                constituency checks will continue regardless of who wins (The Guidon, 2025). But
-                this thinking is exactly what hollows governance out. The leaders you ignore today
-                make the decisions you live with tomorrow.
+                established as an autonomous student government guided by Jesuit, Filipino, and
+                Mindanaoan principles (SAMAHAN, 2025). It champions real advocacies such as
+                climate action, quality education, holistic health, youth empowerment, SOGIESC
+                rights, and good governance (SAMAHAN, 2025). But those advocacies only carry
+                weight when the students they represent actually show up. A student government
+                elected by few speaks for few. When participation is low, SAMAHAN&apos;s ability to
+                credibly negotiate with the administration, secure student services, and drive
+                institutional change is fundamentally weakened because its mandate is thin. Low
+                voter turnout is not only seen in AdDU But it is a crisis across Philippine higher
+                education institutions. Schools such as Far Eastern University (FEU) saw a decline
+                in voter turnout from 44.79% to 36.36% in 2024 (FEU Produces Low Voter Turnout,
+                Prompts &apos;Failed Election&apos; Cases, n.d.). Furthermore, the University of the
+                Philippines Manila recorded a 37.70% voter turnout, the lowest since 1999
+                (Escueta et al., 2025).
               </p>
             </div>
           </div>
