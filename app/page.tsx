@@ -27,6 +27,13 @@ export default function HomePage() {
       contested by only one candidate each, <strong>4 more than in the 2025 SAMAHAN Central Board Elections</strong> (Atenews, 2026; Atenews, 2025). Moreover, due to low voter turnout this year, an extension for the voting period was required from March 31 to April 1.
     </>
   );
+  const affectedText = (
+    <>
+      Student government involvement, per Suh (2021), <strong>correlates with better grades and political awareness,</strong>{" "} making low AdDU participation a significant concern.
+      Addressing issues like student election participation and candidacy early is crucial as it establishes <strong>political awareness, ideologies, and future betterment</strong> {" "} through practicing
+      the right to vote.
+    </>
+  );
   return (
     <>
       {/* ══════════════════════════════════════════
@@ -93,7 +100,7 @@ export default function HomePage() {
                   num: "02",
                   title: "Who is Affected?",
                   placeholder:
-                    "Identify who is affected and how — the student body, the institution, future batches.",
+                    affectedText,
                 },
                 {
                   num: "03",
