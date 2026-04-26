@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ImagePlaceholder from "../components/ImagePlaceholder";
+import samahanevent from "../resources/images/samahanevent.jpg";
+import whyparticipate from "../resources/images/whyparticipate.png";
+import whyvote from "../resources/images/whyvote.png";
+import whyrun from "../resources/images/whyrun.png";
 
 export const metadata: Metadata = {
   title: "Why Participate? | The Round Table",
@@ -9,23 +14,17 @@ export const metadata: Metadata = {
 };
 
 // ─── Numbered reason card ────────────────────────────────────────────────────
-function ReasonCard({ number, title }: { number: number; title: string }) {
+function ReasonCard({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {
   return (
     <div className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
       <span className="w-9 h-9 rounded-xl bg-slate-900 text-amber-400 font-black text-sm flex items-center justify-center shrink-0">
         {String(number).padStart(2, "0")}
       </span>
       <h3 className="font-bold text-slate-900 leading-snug text-sm">
-        {/* TODO: Replace with your actual reason title */}
         {title}
       </h3>
       <p className="text-slate-500 text-sm leading-relaxed">
-        {/*
-          TODO: Elaborate here — give a specific example, statistic, or argument
-          that makes this point tangible for an ADDU student.
-        */}
-        [Elaborate on this reason — be specific. Cite examples from ADDU, the Philippines,
-        or broader civic contexts.]
+        {children}
       </p>
     </div>
   );
@@ -63,104 +62,179 @@ function QuoteCard() {
 export default function ParticipatePage() {
   return (
     <>
-      {/* ── Page hero ── */}
-      <section className="relative bg-slate-950 py-20 px-4 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-16 right-0 w-72 h-72 bg-amber-500/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+      {/* ── Hero ── */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 px-4 py-12 overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[40vh] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[30vw] h-[30vh] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-3 mb-5">
-            <span className="h-px w-8 bg-amber-400/60" />
-            <span className="text-amber-400 text-xs font-bold tracking-[0.18em] uppercase">
-              The Round Table
-            </span>
+        <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-6xl mx-auto gap-10">
+          {/* Text */}
+          <div className="text-center max-w-3xl">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="h-px w-8 bg-amber-400/60" />
+              <span className="text-amber-400 text-xs font-bold tracking-[0.18em] uppercase">
+                The Round Table
+              </span>
+              <span className="h-px w-8 bg-amber-400/60" />
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4 leading-tight">
+              Your Voice.<br />
+              <span className="text-amber-400">Your Choice.</span>
+            </h1>
+
+            <p className="text-slate-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+              Whether you are choosing who leads or deciding to lead yourself, your participation is what makes SAMAHAN more than just a name on a lanyard. Without you, student government is just a title. With you, it becomes a force.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 max-w-3xl leading-tight">
-            Why Participate?
-          </h1>
-          <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
-            {/*
-              TODO: Compelling intro.
-              e.g., "Your participation in student governance is not just a right —
-              it is a responsibility. And it matters more than you think."
-            */}
-            [Brief intro — speak directly to a student who thinks their vote or candidacy
-            makes no difference.]
-          </p>
+
+          {/* Images */}
+          <div className="grid md:grid-cols-3 gap-6 w-full">
+            <Link
+              href="#why-participate"
+              className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer bg-slate-900"
+            >
+              <Image
+                src={whyparticipate}
+                alt="Why Participate"
+                className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="text-amber-400 text-xs font-bold tracking-widest uppercase mb-1 block">Get Started</span>
+                <h3 className="text-white text-lg font-bold">Why Participate</h3>
+              </div>
+            </Link>
+
+            <Link
+              href="#why-vote"
+              className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer bg-slate-900"
+            >
+              <Image
+                src={whyvote}
+                alt="Why Vote"
+                className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="text-amber-400 text-xs font-bold tracking-widest uppercase mb-1 block">For Voters</span>
+                <h3 className="text-white text-lg font-bold">Why Vote</h3>
+              </div>
+            </Link>
+
+            <Link
+              href="#why-run"
+              className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer bg-slate-900"
+            >
+              <Image
+                src={whyrun}
+                alt="Why Run for Office"
+                className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="text-amber-400 text-xs font-bold tracking-widest uppercase mb-1 block">For Leaders</span>
+                <h3 className="text-white text-lg font-bold">Why Run for Office</h3>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
           FRAMING — WHY IT MATTERS
       ══════════════════════════════════════════ */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
+      <section id="why-participate" className="py-20 md:py-28 px-4 bg-slate-50/80">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          {/* Text */}
+          <div className="max-w-xl">
+            <div className="flex items-center gap-3 mb-3">
               <span className="h-px w-8 bg-amber-400" />
               <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">
                 Why It Matters
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
               Governance Without Participation Is Hollow
             </h2>
-            <div className="flex flex-col gap-4">
-              <p className="text-slate-500 leading-relaxed">
-                {/*
-                  TODO: Introductory paragraph connecting to the problem on the homepage.
-                  e.g., "SAMAHAN exists to represent the needs and interests of every
-                  Atenean student. But a student government without student participation
-                  is representation without mandate."
-                */}
-                [Intro paragraph — connect this page back to the problem. Why does low
-                participation undermine the student government's ability to serve?]
+            <div className="flex flex-col gap-5">
+              <p className="text-slate-600 leading-relaxed text-[15px] md:text-base">
+                SAMAHAN, the Samahan ng mga Mag-aaral ng Pamantasang Ateneo de Davao, was
+                established as an autonomous student government guided by Jesuit, Filipino,
+                and Mindanaoan principles. It champions real advocacies such
+                as climate action, quality education, holistic health, youth empowerment,
+                SOGIESC rights, and good governance. But those advocacies
+                only carry weight when the students they represent actually show up. A student
+                government elected by few speaks for few. When participation is low, SAMAHAN's
+                ability to credibly negotiate with the administration, secure student services,
+                and drive institutional change is fundamentally weakened because its mandate is thin.
               </p>
-              <p className="text-slate-500 leading-relaxed">
-                {/* TODO: Second paragraph — quote, stat, or historical reference */}
-                [Optional second paragraph — reinforce the argument with a quote, data
-                point, or example from Philippine student government history.]
+              <p className="text-slate-600 leading-relaxed text-[15px] md:text-base">
+                Low voter turnout is not unique to ADDU. It is a crisis across Philippine higher
+                education institutions. In 2024, Far Eastern University saw its voter turnout drop
+                from 44.79% to 36.36%, and the University of the Philippines Manila recorded a
+                37.70% voter participation rate, its lowest in 25 years. Former
+                Sanggunian President TJ Alcantara attributes this disengagement to a sense of
+                complacency, where students assume that programs like academic subsidies and
+                constituency checks will continue regardless of who wins. But
+                this thinking is exactly what hollows governance out. The leaders you ignore today
+                make the decisions you live with tomorrow.
               </p>
             </div>
           </div>
 
-          {/* TODO: Replace with engaging image */}
-          <ImagePlaceholder
-            label="Photo of students at a SAMAHAN event, election, or campaign"
-            className="w-full h-60 rounded-2xl"
-          />
+          {/* Image */}
+          <div className="relative group">
+            <Image
+              src={samahanevent}
+              alt="Students at a SAMAHAN event"
+              className="w-full h-[420px] md:h-[480px] rounded-2xl object-cover shadow-lg group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+            />
+          </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
           WHY VOTE?
       ══════════════════════════════════════════ */}
-      <section id="why-vote" className="py-16 px-4 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-2">
+      <section id="why-vote" className="py-20 md:py-28 px-4 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-3">
             <span className="h-px w-8 bg-amber-400" />
             <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">
               For Voters
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
             Why Vote?
           </h2>
-          <p className="text-slate-500 mb-10 max-w-xl">
-            {/* TODO: Framing sentence — e.g., "Voting takes minutes. Its consequences last a year." */}
-            [One punchy sentence framing the voting section.]
+          <p className="text-slate-600 mb-14 max-w-2xl text-[15px] md:text-base leading-relaxed">
+            Your vote is the single simplest act that determines whether SAMAHAN governs with a real mandate or just a title.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* TODO: Edit titles — suggested topics: representation, policy impact, civic habit,
-                legitimacy, accountability, ease of voting */}
-            <ReasonCard number={1} title="[e.g., Your Vote Shapes Student Policy]" />
-            <ReasonCard number={2} title="[e.g., Low Turnout Weakens the Mandate]" />
-            <ReasonCard number={3} title="[e.g., Every Vote Holds Leaders Accountable]" />
-            <ReasonCard number={4} title="[e.g., Voting is a Civic Habit Worth Building]" />
-            <ReasonCard number={5} title="[e.g., It Only Takes a Few Minutes]" />
-            <ReasonCard number={6} title="[Add your own reason]" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <ReasonCard number={1} title="Your Vote Shapes Student Policy">
+              The platforms SAMAHAN candidates run on become the programs your student government pursues from academic subsidies to mental health services. SAMAHAN's current AdvocaSIX framework, covering everything from climate action to SOGIESC rights, was shaped by the leadership that students voted into office. If you did not vote, you had no say in setting that agenda. Students at ADDU who turned out in the late 1990s helped elect SAMAHAN presidents who later recalled those elections as formative experiences in shaping university policy. Your single vote aggregates into a direction for the entire institution.
+            </ReasonCard>
+            <ReasonCard number={2} title="Low Turnout Weakens the Mandate">
+              When fewer students vote, the elected officers represent a smaller slice of the student body which makes it harder for SAMAHAN to argue on your behalf with the university administration. Across Philippine HEIs, falling voter turnout has directly undermined student government credibility. A SAMAHAN president elected by 30% of students carries a far weaker mandate than one elected by 70%. The administration knows the numbers. Your participation strengthens SAMAHAN's voice in every negotiation that matters to you tuition consultations, academic policies, campus safety.
+            </ReasonCard>
+            <ReasonCard number={3} title="Every Vote Holds Leaders Accountable">
+              High turnout does not just elect leaders it disciplines them. When students vote in large numbers, candidates know they must deliver on their platforms or face judgment at the next election. SAMAHAN publishes monthly reports and maintains active public channels precisely because it operates under the expectation that students are watching. The SAMAHAN Multisectoral Council was launched specifically to ensure that even minority groups and cause-based movements have representation and can hold the central board accountable. That accountability mechanism only works if students participate.
+            </ReasonCard>
+            <ReasonCard number={4} title="Voting Is a Civic Habit Worth Building">
+              The habits you form in university carry into the rest of your life. Research on youth electoral participation in the Philippines shows that political interest and existing civic involvement have a significant positive relationship with voter turnout in national elections. Students who vote in campus elections are more likely to become the registered voters, barangay officials, and engaged citizens that Philippine democracy desperately needs. Your SAMAHAN ballot is a rehearsal for the national stage.
+            </ReasonCard>
+            <ReasonCard number={5} title="It Only Takes a Few Minutes">
+              SAMAHAN elections are conducted on campus, often digitally, designed to remove every logistical barrier. The Ateneo Caravan initiative organized by SAMAHAN in partnership with JPSPM-AdDU even brought government and civic services directly to campus to reduce barriers to participation. Voting in a student election requires less effort than most things you did today. The decision not to vote is rarely about access. It is about conviction. This is your invitation to find it.
+            </ReasonCard>
+            <ReasonCard number={6} title="Your Abstention Is Also a Choice Just Not Yours">
+              When you do not vote, you do not stay neutral. You hand your voice to everyone else who does show up. A study on student council elections in the Philippines found that non-participation is overwhelmingly a conscious choice, not an accidental one and that choice systematically shifts outcomes toward candidates favored by a self-selecting minority. Choosing not to vote is still choosing you are simply letting others choose for you.
+            </ReasonCard>
           </div>
         </div>
       </section>
@@ -168,31 +242,40 @@ export default function ParticipatePage() {
       {/* ══════════════════════════════════════════
           WHY RUN?
       ══════════════════════════════════════════ */}
-      <section id="why-run" className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-2">
+      <section id="why-run" className="py-20 md:py-28 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-3">
             <span className="h-px w-8 bg-amber-400" />
             <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">
               For Candidates
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
             Why Run for Office?
           </h2>
-          <p className="text-slate-500 mb-10 max-w-xl">
-            {/* TODO: Framing sentence */}
-            [One sentence framing the candidacy section.]
+          <p className="text-slate-600 mb-14 max-w-2xl text-[15px] md:text-base leading-relaxed">
+            Running for SAMAHAN is not a line on your résumé it is a decision to take responsibility for the 10,000+ Ateneans who share this university with you.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* TODO: Edit titles — suggested topics: leadership, change, voice, community,
-                legacy, networking */}
-            <ReasonCard number={1} title="[e.g., Drive Real Change for Your Fellow Students]" />
-            <ReasonCard number={2} title="[e.g., Develop Leadership You Can't Learn in Class]" />
-            <ReasonCard number={3} title="[e.g., Be the Voice Your Batchmates Need]" />
-            <ReasonCard number={4} title="[e.g., Build Connections Across the University]" />
-            <ReasonCard number={5} title="[e.g., Leave a Legacy for Future Ateneans]" />
-            <ReasonCard number={6} title="[Add your own reason]" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <ReasonCard number={1} title="Drive Real Change for Your Fellow Students">
+              SAMAHAN is not ceremonial. It negotiates with university administration, organizes large-scale campus events, manages student welfare programs, and champions advocacy campaigns that reach beyond the campus. The SAMAHAN Multisectoral Council, launched to give sectoral and minority student groups an amplified voice in governance, is a direct product of student leaders who decided to build something better. If there is a problem on campus that frustrates you a policy that feels unjust, a service that is lacking the fastest path to changing it runs through the SAMAHAN Central Board.
+            </ReasonCard>
+            <ReasonCard number={2} title="Develop Leadership You Cannot Learn in Class">
+              The leadership competencies forged in student government stakeholder management, crisis communication, budget stewardship, coalition-building are precisely what employers and graduate schools look for. A phenomenological study on student government leadership in the Philippines found that serving as a student leader develops skills in open communication, teamwork, time management, and self-empowerment that persist far beyond campus. These are not soft skills. They are the hard infrastructure of every career worth having.
+            </ReasonCard>
+            <ReasonCard number={3} title="Be the Voice Your Batchmates Need">
+              Many students feel that student government does not represent them and that feeling is often justified because the students who could represent them never ran. The SAMAHAN Political Affairs and Engagements Department exists specifically to promote informed political participation and ensure that student voices not just the loudest ones shape governance. If your department, course, or sector feels unheard, the answer is not to complain louder. It is to sit at the table.
+            </ReasonCard>
+            <ReasonCard number={4} title="Build Connections Across the University">
+              Serving in SAMAHAN places you at the intersection of every college, department, and advocacy group on campus. SAMAHAN officers engage directly with university administrators, partner with community organizations, and represent ADDU in external conferences and alliances. These are relationships you cannot manufacture in a classroom. Former SAMAHAN presidents have noted that the networks built during their term across sectors, disciplines, and even generations of Ateneans became the most durable asset of their student leadership experience.
+            </ReasonCard>
+            <ReasonCard number={5} title="Leave a Legacy for Future Ateneans">
+              SAMAHAN's AdvocaSIX is a six-year framework running from 2022 to 2028 meaning the decisions made by today's student leaders will shape campus life for Ateneans who have not yet enrolled. In April 2026, SAMAHAN's initiatives were recognized at the Mindanao Youth Awards, honoring programs that created lasting community impact across Mindanao. The work you do in office outlives your term. Build something worth inheriting.
+            </ReasonCard>
+            <ReasonCard number={6} title="Student Leadership Is the First Step to National Leadership">
+              The pipeline from campus government to public service in the Philippines is well-documented. Bam Aquino served as Ateneo Sanggunian President in 1998–1999 before becoming a Philippine senator. Lean Alejandro, the celebrated UP student council chairman, became one of the most consequential youth leaders in Philippine political history. The values, discipline, and political instinct you develop in SAMAHAN are the same ones that drive national change. You have to start somewhere. Start here.
+            </ReasonCard>
           </div>
         </div>
       </section>
