@@ -27,7 +27,7 @@ export default function Navbar() {
           <div className="flex flex-col leading-none">
             <span className="text-white font-semibold text-sm">The Round Table</span>
             <span className="text-slate-500 text-[11px] mt-0.5 hidden sm:block">
-              SAMAHAN Hub · ADDU
+              Student Government Educational Hub · ADDU
             </span>
           </div>
         </Link>

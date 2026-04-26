@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { Image } from 'primereact/image';
+import contestedgraph from "../public/images/contestedgraph.png"
 import ImagePlaceholder from "./components/ImagePlaceholder";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 // ─── Reusable hero eyebrow label ────────────────────────────────────────────
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -15,6 +18,15 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 
 export default function HomePage() {
+  const problemText = (
+    <>
+      AdDU has seen a drop and slowness in voting participation and in the number of candidates running. The 2026 election for the{" "}
+      <strong>Samahan ng mga Mag-Aaral ng Pamantasang Ateneo de Davao</strong>{" "}
+      (<strong>SAMAHAN AdDU</strong>) Central Board saw{" "}
+      <strong>10 out of 11 positions</strong>{" "}
+      contested by only one candidate each, <strong>4 more than in the 2025 SAMAHAN Central Board Elections</strong> (Atenews, 2026; Atenews, 2025). Moreover, due to low voter turnout this year, an extension for the voting period was required from March 31 to April 1.
+    </>
+  );
   return (
     <>
       {/* ══════════════════════════════════════════
@@ -59,15 +71,11 @@ export default function HomePage() {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
-            {/*
-              TODO: Replace with a compelling headline — the core problem in one line.
-              e.g., "Fewer Ateneans Are Showing Up — And It's Costing All of Us"
-            */}
-            [Problem headline — one striking sentence]
+            An Analysis of Recent Decline in Student Participation in Student Governance in the Context of Ateneo de Davao University
           </h2>
           <p className="text-slate-500 text-lg mb-14 max-w-2xl">
-            {/* TODO: Add a one-sentence hook */}
-            [One sentence that hooks the reader — what is happening at ADDU?]
+            While student governance serves as a vital platform for leadership and civic engagement in Philippine universities, such as Ateneo de Davao University, recent electoral data
+            reveals a notable shift in how students are participating in campus elections.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -79,7 +87,7 @@ export default function HomePage() {
                   num: "01",
                   title: "What is the Problem?",
                   placeholder:
-                    "Describe the problem clearly. What is happening in ADDU regarding student participation in SAMAHAN? Keep it specific and observable.",
+                    problemText,
                 },
                 {
                   num: "02",
@@ -100,9 +108,9 @@ export default function HomePage() {
                   </span>
                   <div>
                     <h3 className="text-base font-semibold text-slate-900 mb-1.5">{title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">
+                    <p className="text-slate-500 text-sm leading-relaxed text-justify">
                       {/* TODO: {placeholder} */}
-                      [{placeholder}]
+                      {placeholder}
                     </p>
                   </div>
                 </div>
@@ -110,12 +118,18 @@ export default function HomePage() {
             </div>
 
             {/* ── Image + stat ── */}
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-8">
               {/* TODO: Replace with <Image> */}
-              <ImagePlaceholder
-                label="Insert relevant photo — e.g., SAMAHAN election day, low-turnout visual"
-                className="w-full h-64 rounded-2xl"
-              />
+              <figure className="flex flex-col items-center">
+                <Image
+                  src={contestedgraph.src}
+                  alt="Graph showing the number of contested vs uncontested positions in recent SAMAHAN elections"
+                  className="w-full max-w-md rounded-lg mb-3"
+                  preview />
+                <figcaption className="text-xs text-slate-400 italic text-center mt-1">
+                  Graph showing the number of contested vs uncontested positions in recent SAMAHAN elections
+                </figcaption>
+              </figure>
               <p className="text-xs text-slate-400 italic text-center">
                 {/* TODO: Image caption + source */}
                 [Image caption — describe the photo and credit the source]
