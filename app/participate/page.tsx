@@ -23,7 +23,7 @@ function ReasonCard({ number, title, children }: { number: number; title: string
       <h3 className="font-bold text-slate-900 leading-snug text-sm">
         {title}
       </h3>
-      <p className="text-slate-500 text-sm leading-relaxed">
+      <p className="text-slate-500 text-sm leading-relaxed text-justify">
         {children}
       </p>
     </div>
@@ -162,13 +162,16 @@ export default function ParticipatePage() {
               Governance Without Participation Is Hollow
             </h2>
             <div className="flex flex-col gap-5">
-              <p className="text-slate-600 leading-relaxed text-[15px] md:text-base">
+              <p className="text-slate-600 leading-relaxed text-[15px] md:text-base text-justify">
                 SAMAHAN, the Samahan ng mga Mag-aaral ng Pamantasang Ateneo de Davao, was
                 established as an autonomous student government guided by Jesuit, Filipino, and
                 Mindanaoan principles (SAMAHAN, 2025). It champions real advocacies such as
                 climate action, quality education, holistic health, youth empowerment, SOGIESC
                 rights, and good governance (SAMAHAN, 2025). But those advocacies only carry
-                weight when the students they represent actually show up. A student government
+                weight when the students they represent actually show up.
+              </p>
+              <p className="text-slate-600 leading-relaxed text-[15px] md:text-base text-justify">
+                A student government
                 elected by few speaks for few. When participation is low, SAMAHAN&apos;s ability to
                 credibly negotiate with the administration, secure student services, and drive
                 institutional change is fundamentally weakened because its mandate is thin. Low
