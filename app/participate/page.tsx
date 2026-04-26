@@ -165,11 +165,11 @@ export default function ParticipatePage() {
               <p className="text-slate-600 leading-relaxed text-[15px] md:text-base">
                 SAMAHAN, the Samahan ng mga Mag-aaral ng Pamantasang Ateneo de Davao, was
                 established as an autonomous student government guided by Jesuit, Filipino,
-                and Mindanaoan principles. It champions real advocacies such
+                and Mindanaoan principles (SAMAHAN, 2025). It champions real advocacies such
                 as climate action, quality education, holistic health, youth empowerment,
-                SOGIESC rights, and good governance. But those advocacies
-                only carry weight when the students they represent actually show up. A student
-                government elected by few speaks for few. When participation is low, SAMAHAN's
+                SOGIESC rights, and good governance (SAMAHAN, 2025). But those advocacies only
+                carry weight when the students they represent actually show up. A student
+                government elected by few speaks for few. When participation is low, SAMAHAN&apos;s
                 ability to credibly negotiate with the administration, secure student services,
                 and drive institutional change is fundamentally weakened because its mandate is thin.
               </p>
@@ -177,10 +177,10 @@ export default function ParticipatePage() {
                 Low voter turnout is not unique to ADDU. It is a crisis across Philippine higher
                 education institutions. In 2024, Far Eastern University saw its voter turnout drop
                 from 44.79% to 36.36%, and the University of the Philippines Manila recorded a
-                37.70% voter participation rate, its lowest in 25 years. Former
+                37.70% voter participation rate, its lowest in 25 years (The Guidon, 2025). Former
                 Sanggunian President TJ Alcantara attributes this disengagement to a sense of
                 complacency, where students assume that programs like academic subsidies and
-                constituency checks will continue regardless of who wins. But
+                constituency checks will continue regardless of who wins (The Guidon, 2025). But
                 this thinking is exactly what hollows governance out. The leaders you ignore today
                 make the decisions you live with tomorrow.
               </p>
@@ -280,31 +280,7 @@ export default function ParticipatePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          STUDENT VOICES
-      ══════════════════════════════════════════ */}
-      <section id="voices" className="py-16 px-4 bg-slate-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="h-px w-8 bg-amber-400" />
-            <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">
-              Student Voices
-            </span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
-            Hear From Those Who Chose to Participate
-          </h2>
-          <p className="text-slate-500 mb-10">
-            {/* TODO: Brief intro, or remove the section if you have no quotes yet */}
-            [Optional intro — e.g., "Hear from Ateneans who chose to participate."]
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <QuoteCard />
-            <QuoteCard />
-            {/* TODO: Add more <QuoteCard /> entries as needed */}
-          </div>
-        </div>
-      </section>
+      {/* Student voices section hidden for now. */}
 
       {/* ══════════════════════════════════════════
           CALL TO ACTION
@@ -324,12 +300,10 @@ export default function ParticipatePage() {
             <span className="h-px w-8 bg-amber-400/60" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            {/* TODO: CTA headline */}
-            [Headline — e.g., "Ready to make your voice heard?"]
+            Magis Starts With Showing Up.
           </h2>
           <p className="text-slate-400 mb-10 leading-relaxed">
-            {/* TODO: Supporting sentence */}
-            [One sentence reinforcing the call to act.]
+            Whether you cast a ballot or put your name on it, your participation is what transforms SAMAHAN from a student government into a genuine student movement.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
