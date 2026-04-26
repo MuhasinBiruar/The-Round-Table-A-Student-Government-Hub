@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Image } from 'primereact/image';
 import contestedgraph from "../public/images/contestedgraph.png"
 import ImagePlaceholder from "./components/ImagePlaceholder";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 // ─── Reusable hero eyebrow label ────────────────────────────────────────────
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -121,9 +122,10 @@ export default function HomePage() {
               {/* TODO: Replace with <Image> */}
               <figure className="flex flex-col items-center">
                 <Image
-                  src={contestedgraph}
+                  src={contestedgraph.src}
                   alt="Graph showing the number of contested vs uncontested positions in recent SAMAHAN elections"
-                  className="w-full max-w-md rounded-lg mb-3" />
+                  className="w-full max-w-md rounded-lg mb-3"
+                  preview />
                 <figcaption className="text-xs text-slate-400 italic text-center mt-1">
                   Graph showing the number of contested vs uncontested positions in recent SAMAHAN elections
                 </figcaption>
@@ -251,9 +253,11 @@ export default function HomePage() {
         <div className="relative max-w-2xl mx-auto">
           <Eyebrow>Get Involved</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+            {/* TODO: CTA headline */}
             [Headline — e.g., "Your voice shapes Ateneo. Use it."]
           </h2>
           <p className="text-slate-400 mb-10 leading-relaxed">
+            {/* TODO: Supporting sentence */}
             [One sentence reinforcing the call to act — tie it back to the problem.]
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
