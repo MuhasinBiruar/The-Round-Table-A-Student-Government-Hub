@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Image } from 'primereact/image';
-import contestedgraph from "../public/images/contestedgraph.png"
+import contestedgraph from "../public/images/contestedgraph.png";
+import samahanVoterChart from "./resources/images/samahan_voter_turnout.png";
 import ImagePlaceholder from "./components/ImagePlaceholder";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
@@ -32,6 +33,14 @@ export default function HomePage() {
       Student government involvement, per Suh (2021), <strong>correlates with better grades and political awareness,</strong>{" "} making low AdDU participation a significant concern.
       Addressing issues like student election participation and candidacy early is crucial as it establishes <strong>political awareness, ideologies, and future betterment</strong> {" "} through practicing
       the right to vote.
+    </>
+  );
+  const significanceText = (
+    <>
+      <p><strong className="text-blue-600">ADDU COMELEC Memorandum No. 2023-16</strong></p> shows that around <b className="text-red-600">32.79%</b> did not vote in the 2023 SAMAHAN Central Board Elections. <p className="mt-2"><strong className="text-blue-600">ADDU COMELEC Memorandum No. 2024-06</strong></p> shows that <b className="text-red-600">25.86%</b> did not vote
+      in the 2024 SAMAHAN Central Board Elections. Furthermore, <p className="mt-2"><strong className="text-blue-600">ADDU COMELEC Memorandum No. 2025-05</strong></p> shows that <b className="text-red-600">33.97%</b> did not vote in the 2025 SAMAHAN Central Board Elections.
+      <p className="mt-2"><strong className="text-blue-600">ADDU COMELEC Memorandum No. 2026-05</strong></p> shows that <b className="text-red-600">39.30%</b> did not vote in the 2026 SAMAHAN Central Board Elections, which is the highest in recent years. This shows a decline in student participation in
+      terms of voting. From 2024, there is a decline of over <b className="text-red-600 font-stretch-ultra-expanded">13.44%</b>.
     </>
   );
   return (
@@ -106,19 +115,19 @@ export default function HomePage() {
                   num: "03",
                   title: "Why is it Significant?",
                   placeholder:
-                    "Explain why this matters beyond just low numbers — representation, institutional legitimacy, civic culture.",
+                    significanceText,
                 },
               ].map(({ num, title, placeholder }) => (
                 <div key={num} className="flex gap-5">
-                  <span className="text-2xl font-black text-slate-100 leading-none mt-0.5 shrink-0 w-8">
+                  <span className="text-2xl font-black text-slate-600 leading-none mt-0.5 shrink-0 w-8">
                     {num}
                   </span>
                   <div>
                     <h3 className="text-base font-semibold text-slate-900 mb-1.5">{title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed text-justify">
+                    <div className="text-slate-500 text-sm leading-relaxed text-justify">
                       {/* TODO: {placeholder} */}
                       {placeholder}
-                    </p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -137,26 +146,20 @@ export default function HomePage() {
                   Graph showing the number of contested vs uncontested positions in recent SAMAHAN elections
                 </figcaption>
               </figure>
-              <p className="text-xs text-slate-400 italic text-center">
-                {/* TODO: Image caption + source */}
-                [Image caption — describe the photo and credit the source]
-              </p>
 
               {/* Stat callout */}
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
-                <p className="text-5xl font-black text-slate-900 tracking-tight mb-1">
-                  {/* TODO: Insert a real statistic */}
-                  XX%
-                </p>
-                <p className="text-sm text-slate-500 leading-relaxed">
-                  {/* TODO: Describe the stat */}
-                  [e.g., of eligible ADDU students did not vote in the most recent SAMAHAN
-                  election]
-                </p>
-                <p className="text-xs text-slate-400 mt-2">
-                  {/* TODO: Source */}
-                  Source: [...]
-                </p>
+                
+                <figure className="flex flex-col items-center">
+                  <Image
+                    src={samahanVoterChart.src}
+                    alt="Graph showing the voter turnout in recent SAMAHAN elections"
+                    className="w-full max-w-md rounded-lg mb-3"
+                    preview />
+                  <figcaption className="text-xs text-slate-400 italic text-center mt-1">
+                    Graph showing the voter turnout in recent SAMAHAN elections
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </div>
@@ -261,7 +264,7 @@ export default function HomePage() {
           <Eyebrow>Get Involved</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             {/* TODO: CTA headline */}
-            [Headline — e.g., "Your voice shapes Ateneo. Use it."]
+            [Headline — e.g., Your voice shapes Ateneo. Use it.]
           </h2>
           <p className="text-slate-400 mb-10 leading-relaxed">
             {/* TODO: Supporting sentence */}
