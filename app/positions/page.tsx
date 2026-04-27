@@ -1,93 +1,243 @@
 import type { Metadata } from "next";
-import ImagePlaceholder from "../components/ImagePlaceholder";
 
 export const metadata: Metadata = {
-  title: "SAMAHAN Positions | The Round Table",
+  title: "Organizational Directory | The Round Table",
   description:
-    "Learn about the offices and positions within SAMAHAN — the student government of Ateneo de Davao University.",
+    "A comprehensive directory of the SAMAHAN Student Government offices and departments at Ateneo de Davao University.",
 };
 
-// ─── Shared page hero used by all inner pages ────────────────────────────────
-function PageHero({ tag, title, description }: { tag: string; title: string; description: string }) {
-  return (
-    <section className="relative bg-slate-950 py-20 px-4 overflow-hidden">
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-16 right-0 w-72 h-72 bg-amber-500/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+// ─── Data Types ─────────────────────────────────────────────────────────────
 
-      <div className="relative max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-3 mb-5">
-          <span className="h-px w-8 bg-amber-400/60" />
-          <span className="text-amber-400 text-xs font-bold tracking-[0.18em] uppercase">
-            {tag}
+type Department = {
+  name: string;
+  description: string;
+  positions: string[];
+};
+
+type Office = {
+  id: string;
+  name: string;
+  badge: string;
+  description: string;
+  internalPositions: string[];
+  gradient: string;
+  accent: string;
+  departments: Department[];
+};
+
+// ─── Organizational Data ─────────────────────────────────────────────────────
+
+const OFFICES: Office[] = [
+  {
+    id: "president",
+    name: "Office of the SAMAHAN President",
+    badge: "Executive Head",
+    description:
+      "The OSP is the central executive office of SAMAHAN, focusing on internal harmony, administrative efficiency, and the university's external relations with national and international student alliances.",
+    internalPositions: ["SAMAHAN President", "Chief of Staff", "Executive Secretary", "Executive Undersecretary"],
+    gradient: "from-blue-600/20 via-blue-600/5 to-transparent",
+    accent: "text-blue-400",
+    departments: [
+      {
+        name: "Department of External Affairs",
+        description: "Manages Ateneo de Davao's engagements with external alliances like Buklod Atenista.",
+        positions: ["DEA Director", "DEA Deputy Director"],
+      },
+      {
+        name: "SAMAHAN Ecoteneo Student Unit (ESU)",
+        description: "Leads environmental advocacies and sustainability initiatives within the campus.",
+        positions: ["ESU Director", "ESU Deputy Director"],
+      },
+      {
+        name: "Department of Campaigns and Advocacies",
+        description: "Amplifies the student body's voice on critical social and political issues.",
+        positions: ["DCA Director", "DCA Deputy Director"],
+      },
+      {
+        name: "Student Needs and Services Department",
+        description: "Dedicated to long-term welfare programs and immediate student support.",
+        positions: ["SNS Director", "SNS Deputy Director"],
+      },
+    ],
+  },
+  {
+    id: "vice-president",
+    name: "Office of the SAMAHAN Vice President",
+    badge: "Executive & Legislative",
+    description:
+      "The OSVP supervises the internal affairs of the student government and leads the Student Assembly, ensuring that legislative and executive actions are aligned with student welfare.",
+    internalPositions: ["SAMAHAN Vice President", "Chief-of-Staff", "Multisectoral Affairs Secretary", "Legislative Secretary", "Legislative Undersecretaries"],
+    gradient: "from-purple-600/20 via-purple-600/5 to-transparent",
+    accent: "text-purple-400",
+    departments: [
+      {
+        name: "Department of Academic Affairs (DAA)",
+        description: "Promotes academic welfare and reviews university policies to protect student rights.",
+        positions: ["DAA Director", "DAA Deputy Director"],
+      },
+      {
+        name: "Department of Disaster Risk Reduction and Management",
+        description: "Orchestrates campus safety protocols and emergency response initiatives.",
+        positions: ["DRRM Director", "DRRM Deputy Director"],
+      },
+      {
+        name: "Political Affairs and Engagements Department",
+        description: "Promotes political awareness and encourages active student participation in governance.",
+        positions: ["SPAED Director", "SPAED Deputy Director"],
+      },
+    ],
+  },
+  {
+    id: "secretary-general",
+    name: "Office of the SAMAHAN Secretary General",
+    badge: "Secretariat",
+    description:
+      "The OSG ensures the smooth administrative flow of SAMAHAN, managing documentation, secretariat functions, and the overall organizational system.",
+    internalPositions: ["SAMAHAN Secretary General", "Administrative Secretary", "Administrative Undersecretaries"],
+    gradient: "from-emerald-600/20 via-emerald-600/5 to-transparent",
+    accent: "text-emerald-400",
+    departments: [
+      {
+        name: "SAMAHAN Communications",
+        description: "Manages the organization's public image, information dissemination, and digital presence.",
+        positions: ["SAMACOMMS Director", "SAMACOMMS Deputy Director"],
+      },
+      {
+        name: "Ateneo SAMAHAN Productions",
+        description: "Directs the planning and execution of major university-wide events and festivals.",
+        positions: ["ASP Director", "ASP Deputy Director"],
+      },
+      {
+        name: "SAMAHAN Creative Team",
+        description: "The branding and visual identity arm, specializing in design and multimedia production.",
+        positions: ["SCT Director", "SCT Deputy Director"],
+      },
+      {
+        name: "SAMAHAN Research and Development",
+        description: "Conducts data-driven studies to inform SAMAHAN's policies and initiatives.",
+        positions: ["R&D Director", "R&D Deputy Director"],
+      },
+      {
+        name: "SAMAHAN Systems Development",
+        description: "Manages the digital infrastructure and technical tools of the student government.",
+        positions: ["SysDev Director", "SysDev Deputy Director"],
+      },
+    ],
+  },
+  {
+    id: "treasurer",
+    name: "Office of the SAMAHAN Treasurer",
+    badge: "Finance",
+    description:
+      "The OST is the primary custodian of SAMAHAN's financial resources, ensuring transparency, accountability, and the efficient allocation of funds for student services.",
+    internalPositions: [ "SAMAHAN Treasurer", "Finance Secretary", "Finance Undersecretaries"],
+    gradient: "from-amber-600/20 via-amber-600/5 to-transparent",
+    accent: "text-amber-400",
+    departments: [
+      {
+        name: "SAMAHAN Logistics Department",
+        description: "Manages procurement, inventory, and the physical requirements of SAMAHAN operations.",
+        positions: ["SLD Director", " SLD Deputy Director"],
+      },
+      {
+        name: "SAMAHAN Sponsorship and Support",
+        description: "Establishes partnerships with internal and external stakeholders for resource mobilization.",
+        positions: ["SAS Director", "SAS Deputy Director"],
+      },
+    ],
+  },
+];
+
+// ─── Components ─────────────────────────────────────────────────────────────
+
+function PageHero() {
+  return (
+    <section className="relative bg-slate-950 py-24 px-4 overflow-hidden border-b border-slate-900">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-[100px]" />
+
+      <div className="relative max-w-5xl mx-auto text-center">
+        <div className="inline-flex items-center gap-3 mb-6">
+          <span className="h-px w-8 bg-amber-400/40" />
+          <span className="text-amber-400 text-xs font-bold tracking-[0.2em] uppercase">
+            Directory
           </span>
+          <span className="h-px w-8 bg-amber-400/40" />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 max-w-3xl leading-tight">
-          {title}
+        <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-tight">
+          Organizational <span className="text-slate-400">Structure</span>
         </h1>
-        <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">{description}</p>
+        <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          Explore the offices and departments that drive the SAMAHAN Student Government's 
+          initiatives at Ateneo de Davao University.
+        </p>
       </div>
     </section>
   );
 }
 
-// ─── Individual office section ───────────────────────────────────────────────
-function OfficeSection({
-  id,
-  badge,
-  title,
-  imageLabel,
-  flip = false,
-}: {
-  id: string;
-  badge: string;
-  title: string;
-  imageLabel: string;
-  flip?: boolean;
-}) {
+function DepartmentCard({ dept }: { dept: Department }) {
   return (
-    <section id={id} className="py-14 border-b border-slate-100 last:border-0">
-      <div className={`flex flex-col gap-8 items-start ${flip ? "md:flex-row-reverse" : "md:flex-row"}`}>
+    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col h-full hover:bg-white/[0.08] transition-colors">
+      <h4 className="text-lg font-bold text-white mb-3 leading-snug">
+        {dept.name}
+      </h4>
+      <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+        {dept.description}
+      </p>
+      <div className="pt-4 border-t border-white/5 mt-auto">
+        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">
+          Positions
+        </span>
+        <div className="flex flex-wrap gap-2">
+          {dept.positions.map((pos) => (
+            <span key={pos} className="text-xs text-slate-300 font-medium">
+              {pos}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-        {/* Image */}
-        <div className="w-full md:w-72 shrink-0">
-          {/* TODO: Replace with <Image> */}
-          <ImagePlaceholder label={imageLabel} className="w-full h-56 rounded-2xl" />
-          <p className="text-xs text-slate-400 italic text-center mt-2">
-            {/* TODO: Add caption */}
-            [Image caption / photo credit]
-          </p>
+function OfficeSection({ office }: { office: Office }) {
+  return (
+    <section id={office.id} className="py-20 border-b border-slate-900 last:border-0">
+      <div className="max-w-5xl mx-auto px-4">
+        {/* Office Header */}
+        <div className={`relative rounded-3xl p-8 md:p-12 overflow-hidden mb-12 bg-gradient-to-br ${office.gradient} border border-white/5`}>
+          <div className="relative z-10">
+            <span className={`inline-block px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[10px] font-bold uppercase tracking-widest ${office.accent} mb-6`}>
+              {office.badge}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+              {office.name}
+            </h2>
+            <p className="text-slate-300 text-lg leading-relaxed max-w-3xl mb-10">
+              {office.description}
+            </p>
+            
+            <div>
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-4">
+                Internal Positions
+              </span>
+              <div className="flex flex-wrap gap-3">
+                {office.internalPositions.map((pos) => (
+                  <span key={pos} className="bg-white/5 backdrop-blur-sm border border-white/10 text-white text-xs px-4 py-2 rounded-xl">
+                    {pos}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="flex-1">
-          <span className="inline-block bg-amber-50 text-amber-600 border border-amber-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            {badge}
-          </span>
-          <h2 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">{title}</h2>
-          <p className="text-slate-500 leading-relaxed mb-6 text-sm">
-            {/*
-              TODO: Write an overview of this office.
-              What does this officer represent? What is their general role in SAMAHAN?
-            */}
-            [Overview — describe what this office is, its significance, and how the officer
-            relates to the student body.]
-          </p>
-
-          <h3 className="text-sm font-semibold text-slate-800 mb-3 uppercase tracking-wider">
-            Roles &amp; Responsibilities
-          </h3>
-          <ul className="flex flex-col gap-2">
-            {/* TODO: Replace with actual roles from the SAMAHAN constitution */}
-            {["[Role or responsibility 1]", "[Role or responsibility 2]", "[Role or responsibility 3]", "[Role or responsibility 4]", "[Add more as needed]"].map(
-              (item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-slate-500">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                  {item}
-                </li>
-              )
-            )}
-          </ul>
+        {/* Departments Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {office.departments.map((dept) => (
+            <DepartmentCard key={dept.name} dept={dept} />
+          ))}
         </div>
       </div>
     </section>
@@ -96,146 +246,68 @@ function OfficeSection({
 
 export default function PositionsPage() {
   return (
-    <>
-      <PageHero
-        tag="The Round Table"
-        title="SAMAHAN Positions"
-        description="[Brief intro — e.g., 'Behind every student welfare initiative is a team of dedicated leaders. Get to know the roles and faces of SAMAHAN.']"
-      />
+    <div className="bg-slate-950 min-h-screen">
+      <PageHero />
 
-      {/* ── In-page jump nav ── */}
-      <nav className="bg-white border-b border-slate-100 sticky top-16 z-40 shadow-sm">
-        <div className="max-w-5xl mx-auto px-6 py-0 flex gap-1 overflow-x-auto">
-          {[
-            { href: "#central-board", label: "Central Board" },
-            { href: "#president", label: "President" },
-            { href: "#vice-president", label: "Vice President" },
-            { href: "#secretary-general", label: "Secretary General" },
-            { href: "#treasurer", label: "Treasurer" },
-          ].map((item) => (
+      {/* ── Jump Navigation ── */}
+      <nav className="bg-slate-950/80 backdrop-blur-md border-b border-slate-900 sticky top-16 z-40">
+        <div className="max-w-5xl mx-auto px-4 flex gap-2 overflow-x-auto py-3 no-scrollbar">
+          {OFFICES.map((office) => (
             <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-500 hover:text-amber-500 whitespace-nowrap py-3.5 px-3 border-b-2 border-transparent hover:border-amber-400 transition-all"
+              key={office.id}
+              href={`#${office.id}`}
+              className="text-xs font-bold text-slate-500 hover:text-white whitespace-nowrap py-2 px-4 rounded-full border border-transparent hover:border-white/10 transition-all uppercase tracking-widest"
             >
-              {item.label}
+              {office.id.replace("-", " ")}
             </a>
           ))}
         </div>
       </nav>
 
-      <div className="max-w-5xl mx-auto px-4 py-8">
-
-        {/* ══════════════════════════════════════════
-            SAMAHAN CENTRAL BOARD — featured card
-        ══════════════════════════════════════════ */}
-        <section id="central-board" className="py-14 border-b border-slate-100">
-          <div className="relative bg-slate-950 rounded-3xl p-8 md:p-10 overflow-hidden">
-            {/* Background glow */}
-            <div className="absolute top-0 right-0 w-72 h-72 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative">
-              <span className="inline-block bg-amber-400 text-slate-900 text-xs font-black px-3 py-1 rounded-full mb-5 uppercase tracking-wide">
-                Main Governing Body
-              </span>
-              <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">
-                SAMAHAN Central Board
-              </h2>
-              <p className="text-slate-400 leading-relaxed mb-8 max-w-2xl text-sm">
-                {/*
-                  TODO: Write an overview of the SAMAHAN Central Board.
-                  What is it? Who comprises it? What is its authority?
-                */}
-                [Overview of the SAMAHAN Central Board — its composition, authority, and
-                function as the supreme student governing body of ADDU.]
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/5 rounded-2xl p-5">
-                  <h3 className="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3">
-                    Composition
-                  </h3>
-                  <ul className="flex flex-col gap-2">
-                    {[
-                      "[e.g., SAMAHAN President — Chair]",
-                      "[e.g., SAMAHAN Vice President]",
-                      "[e.g., Secretary General]",
-                      "[e.g., Treasurer]",
-                      "[e.g., Cluster Representatives]",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-slate-400">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400/60 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-white/5 rounded-2xl p-5">
-                  <h3 className="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3">
-                    Key Powers &amp; Functions
-                  </h3>
-                  <ul className="flex flex-col gap-2">
-                    {[
-                      "[Key power or function 1]",
-                      "[Key power or function 2]",
-                      "[Key power or function 3]",
-                      "[Add more as needed]",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-slate-400">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400/60 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+      <div className="pb-24">
+        {/* Central Board Highlight */}
+        <section id="central-board" className="py-20 bg-slate-950">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl" />
+              <div className="relative z-10">
+                <span className="text-amber-400 text-[10px] font-bold uppercase tracking-widest mb-4 block">
+                  Governing Authority
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  SAMAHAN Central Board
+                </h2>
+                <p className="text-slate-400 leading-relaxed max-w-2xl text-base mb-8">
+                  As the supreme student governing body of Ateneo de Davao University, 
+                  the Central Board exercises overall authority in representing the student 
+                  body and overseeing the implementation of student welfare initiatives.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <h3 className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-3">Composition</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                      Comprised of the Executive Officers, Cluster Representatives, and Sectoral Leaders 
+                      working in unity to serve the Atenean community.
+                    </p>
+                  </div>
+                  <div className="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <h3 className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-3">Function</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                      Acts as the primary decision-making body for university-wide student advocacies, 
+                      policy reforms, and organizational leadership.
+                    </p>
+                  </div>
                 </div>
               </div>
-
-              {/* TODO: Replace with actual Central Board group photo */}
-              <ImagePlaceholder
-                label="SAMAHAN Central Board group photo"
-                className="w-full h-48 rounded-2xl bg-white/5! border-white/10!"
-              />
-              <p className="text-xs text-slate-500 italic mt-2 text-center">
-                {/* TODO: Caption */}
-                [Photo caption — e.g., "SAMAHAN Central Board AY 20__–20__"]
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════
-            INDIVIDUAL OFFICES
-        ══════════════════════════════════════════ */}
-        <OfficeSection
-          id="president"
-          badge="Executive Head"
-          title="Office of the SAMAHAN President"
-          imageLabel="Photo of the SAMAHAN President or office"
-          flip={false}
-        />
-        <OfficeSection
-          id="vice-president"
-          badge="Executive"
-          title="Office of the SAMAHAN Vice President"
-          imageLabel="Photo of the SAMAHAN Vice President or office"
-          flip={true}
-        />
-        <OfficeSection
-          id="secretary-general"
-          badge="Secretariat"
-          title="Office of the SAMAHAN Secretary General"
-          imageLabel="Photo of the SAMAHAN Secretary General"
-          flip={false}
-        />
-        <OfficeSection
-          id="treasurer"
-          badge="Finance"
-          title="Office of the SAMAHAN Treasurer"
-          imageLabel="Photo of the SAMAHAN Treasurer"
-          flip={true}
-        />
+        {/* Office Sections */}
+        {OFFICES.map((office) => (
+          <OfficeSection key={office.id} office={office} />
+        ))}
       </div>
-    </>
+    </div>
   );
 }
