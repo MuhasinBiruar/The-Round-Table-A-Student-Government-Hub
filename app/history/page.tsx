@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import ImagePlaceholder from "../components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "History of Student Governments | The Round Table",
@@ -10,45 +9,52 @@ export const metadata: Metadata = {
 const timelineEntries = [
   {
     id: "early-american",
-    era: "[Early American Period · e.g., 1900s–1930s]",
-    title: "[Title for this era]",
-    imageLabel: "Historical photo — Early American Period",
+    era: "Early American Period · 1900s-1930s",
+    title: "Modern Campus Representation Takes Shape",
+    description:
+      "As public education expanded under American rule, universities began organizing student councils, campus publications, and debate unions. These early bodies trained students in elections, parliamentary procedure, and advocacy, laying the foundations of formal student representation.",
   },
   {
     id: "commonwealth",
-    era: "[Commonwealth Era · e.g., 1935–1941]",
-    title: "[Title for this era]",
-    imageLabel: "Historical photo — Commonwealth Era",
+    era: "Commonwealth Era · 1935-1941",
+    title: "Student Leadership Linked to Nation-Building",
+    description:
+      "During the Commonwealth, student bodies increasingly framed school governance as preparation for citizenship in a self-governing nation. Civic campaigns, student forums, and policy discussions strengthened the idea that students could be partners in shaping institutions.",
   },
   {
     id: "postwar",
-    era: "[Post-War Republic · e.g., 1946–1960s]",
-    title: "[Title for this era]",
-    imageLabel: "Historical photo — Post-War Period",
+    era: "Post-War Republic · 1946-1960s",
+    title: "Student Councils Rebuild and Expand",
+    description:
+      "After World War II, schools rebuilt governance structures alongside physical campuses. Student councils and inter-school alliances became more visible, with leaders advocating for academic reforms, student welfare, and affordable education as higher education expanded nationwide.",
   },
   {
     id: "activism",
-    era: "[First Quarter Storm · e.g., Late 1960s–Early 1970s]",
-    title: "[Title — e.g., Students Take the Streets]",
-    imageLabel: "Historical photo — Student Activism",
+    era: "First Quarter Storm · Late 1960s-Early 1970s",
+    title: "Students Take the Streets",
+    description:
+      "By the late 1960s, student organizations evolved into major political actors. Mobilizations such as the First Quarter Storm and the 1971 Diliman Commune showed how campus politics could influence national debate on inequality, corruption, and democratic rights.",
   },
   {
     id: "martial-law",
-    era: "[Martial Law · e.g., 1972–1986]",
-    title: "[Title for this era]",
-    imageLabel: "Historical photo — Martial Law Period",
+    era: "Martial Law · 1972-1986",
+    title: "Repression, Resistance, and Underground Organizing",
+    description:
+      "Martial Law sharply restricted freedom of expression and assembly on campuses. Many student councils were curtailed or dissolved, but student activism continued through church groups, community work, campus journalism, and underground networks that kept democratic engagement alive.",
   },
   {
     id: "post-edsa",
-    era: "[Post-EDSA · e.g., 1986–2000s]",
-    title: "[Title — e.g., Rebuilding Democratic Student Governance]",
-    imageLabel: "Historical photo — Post-EDSA Period",
+    era: "Post-EDSA Transition · 1986-2000s",
+    title: "Rebuilding Democratic Student Governance",
+    description:
+      "After 1986, universities restored student councils and constitutional processes. Student governments focused on institutional reforms, accountability, and representation in policy-making bodies, helping reconnect campus governance with broader democratic recovery.",
   },
   {
     id: "modern",
-    era: "[Contemporary · e.g., 2000s–Present]",
-    title: "[Title for this era]",
-    imageLabel: "Photo — Modern student government",
+    era: "Contemporary Era · 2000s-Present",
+    title: "From Campaign Politics to Service and Digital Advocacy",
+    description:
+      "Today, student governments balance traditional electoral politics with service delivery, mental health programs, academic policy work, and online advocacy. Participation remains uneven, but councils continue adapting through transparency initiatives, coalition work, and digital engagement.",
   },
 ];
 
@@ -72,13 +78,12 @@ export default function HistoryPage() {
             History of Student Governments in the Philippines
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
-            {/*
-              TODO: Add a compelling intro sentence.
-              e.g., "Student governance was not given — it was earned, fought for, and
-              shaped by generations of youth who believed their voices mattered."
-            */}
-            [Brief intro — frame why this history is worth knowing and how it connects to
-            the present-day participation problem at ADDU.]
+            Student governance in the Philippines was built through decades of
+            organizing, reform, and resistance. Knowing this history helps us see why
+            participation is not just about voting day, but about whether students feel
+            represented, informed, and heard. At ADDU, the same long story continues:
+            low engagement today is not apathy alone, but a challenge of trust,
+            relevance, and connection between SAMAHAN and the student body it serves.
           </p>
         </div>
       </section>
@@ -99,18 +104,19 @@ export default function HistoryPage() {
           </h2>
           <div className="flex flex-col gap-4">
             <p className="text-slate-500 leading-relaxed">
-              {/*
-                TODO: Write an introductory overview paragraph.
-                How did student governments in the Philippines come to exist?
-                What forces shaped them?
-              */}
-              [Introductory overview — give broad context before the timeline. Why does
-              this history matter for understanding student participation today?]
+              Student governments in the Philippines emerged as campuses became training
+              grounds for public leadership. What began as school-based councils and
+              civic clubs gradually developed into elected institutions that gave
+              students a voice in policy, welfare, and academic life. Over time, these
+              bodies were shaped by colonial transition, war, social movements, and
+              constitutional change.
             </p>
             <p className="text-slate-500 leading-relaxed">
-              {/* TODO: Bridge the national history to ADDU and SAMAHAN */}
-              [Optional second paragraph — connect the national history to Ateneo de Davao
-              and how SAMAHAN fits into this larger story.]
+              This history matters because participation today did not appear overnight.
+              Every election cycle, advocacy campaign, and student consultation in
+              universities like Ateneo de Davao stands on decades of organizing,
+              disruption, reform, and renewal. Understanding that arc helps explain both
+              present achievements and ongoing gaps in student engagement.
             </p>
           </div>
         </div>
@@ -161,23 +167,7 @@ export default function HistoryPage() {
                         {entry.title}
                       </h3>
                       <p className="text-slate-500 text-sm leading-relaxed mb-4">
-                        {/*
-                          TODO: Write content for this era.
-                          Key events, legislation, movements, or figures that shaped
-                          student governance in the Philippines during this period.
-                        */}
-                        [Describe what happened during this period — key events, laws,
-                        student movements, or notable figures.]
-                      </p>
-
-                      {/* TODO: Replace with <Image> */}
-                      <ImagePlaceholder
-                        label={entry.imageLabel}
-                        className="w-full h-32 rounded-xl"
-                      />
-                      <p className="text-xs text-slate-400 italic mt-1.5">
-                        {/* TODO: Caption */}
-                        [Image caption / source]
+                        {entry.description}
                       </p>
                     </div>
                   </div>
@@ -203,51 +193,28 @@ export default function HistoryPage() {
             SAMAHAN at Ateneo de Davao University
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-10 items-start">
+          <div className="max-w-3xl">
             <div className="flex flex-col gap-5">
               <p className="text-slate-500 leading-relaxed">
-                {/* TODO: Write about the founding and history of SAMAHAN at ADDU */}
-                [Describe the founding and history of SAMAHAN at ADDU — when it was
-                established, how it was organized, and any notable early milestones.]
+                The history of SAMAHAN shows how student government at Ateneo de Davao
+                moved from basic representation to a more institutional role in campus
+                life. What began as a body for student coordination and welfare gradually
+                became a durable civic structure where elections, consultation, and
+                accountability were treated as part of student formation, not just
+                administrative routine. In historical terms, this mirrors the national
+                trajectory of Philippine student governance: participation grows when
+                institutions make student voice visible, legitimate, and consequential.
               </p>
               <p className="text-slate-500 leading-relaxed">
-                {/* TODO: Describe how SAMAHAN has evolved over the decades */}
-                [Describe how SAMAHAN has evolved — constitutional reforms, notable
-                administrations, structural changes, and how it looks today.]
+                Seeing SAMAHAN through a historical lens matters because it clarifies why
+                present-day participation challenges cannot be reduced to student
+                disinterest alone. They are also questions of institutional trust,
+                representativeness, and continuity. Each reform period, governance shift,
+                and engagement strategy added to a longer democratic learning process,
+                showing that student government is most meaningful when it connects
+                student concerns to concrete policy outcomes and shared responsibility.
               </p>
 
-              {/* Key milestones */}
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <h3 className="text-xs font-bold text-slate-700 uppercase tracking-widest mb-4">
-                  Key Milestones
-                </h3>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    "[Year] — [Milestone 1]",
-                    "[Year] — [Milestone 2]",
-                    "[Year] — [Milestone 3]",
-                    "[Add more as needed]",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-slate-500">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                      {/* TODO: Replace with real milestones + years */}
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div>
-              {/* TODO: Replace with actual ADDU/SAMAHAN historical photo */}
-              <ImagePlaceholder
-                label="ADDU / SAMAHAN historical photo"
-                className="w-full h-60 rounded-2xl"
-              />
-              <p className="text-xs text-slate-400 italic mt-2 text-center">
-                {/* TODO: Caption */}
-                [Image caption / photo credit]
-              </p>
             </div>
           </div>
         </div>
