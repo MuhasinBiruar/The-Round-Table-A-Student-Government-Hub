@@ -4,6 +4,7 @@ import contestedgraph from "../public/images/contestedgraph.png";
 import samahanVoterChart from "./resources/images/samahan_voter_turnout.png";
 import ImagePlaceholder from "./components/ImagePlaceholder";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
+import whyparticipate from "./resources/images/whyparticipate.png";
 
 // ─── Reusable hero eyebrow label ────────────────────────────────────────────
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -194,6 +195,7 @@ export default function HomePage() {
               {
                 href: "/positions",
                 tag: "Governance",
+                src: "",
                 title: "SAMAHAN Positions",
                 placeholder:
                   "How does knowing the SAMAHAN positions help address the participation problem? 2–3 sentences.",
@@ -202,6 +204,7 @@ export default function HomePage() {
               {
                 href: "/history",
                 tag: "Context",
+                src: "",
                 title: "History of Student Governments",
                 placeholder:
                   "Why does historical context matter here? How does knowing the history reframe the problem? 2–3 sentences.",
@@ -210,9 +213,11 @@ export default function HomePage() {
               {
                 href: "/participate",
                 tag: "Action",
+                src: whyparticipate.src,
                 title: "Why Participate?",
                 placeholder:
-                  "What concrete answer does this page give to the problem? Why should an indifferent student change their mind? 2–3 sentences.",
+                  "Low student participation hollows out the student government, directly weakening SAMAHAN's mandate and its "+
+                  "credibility to negotiate effectively with the university administration. By participating, students ensure they actually have a say in the concrete issues that impact their daily lives, such as tuition consultations, academic guidelines, and campus safety.",
                 cta: "Find out why",
               },
             ].map((card) => (
@@ -220,11 +225,9 @@ export default function HomePage() {
                 key={card.href}
                 className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
               >
-                {/* TODO: Replace with actual <Image> */}
-                <ImagePlaceholder
-                  label={`Photo for "${card.title}" card`}
-                  className="w-full h-44 rounded-none border-0 border-b border-slate-100"
-                />
+                <div className="w-full h-44 overflow-hidden bg-slate-100">
+                  <Image src={card.src} alt={`Photo for "${card.title}" card`} className="w-full h-full object-cover rounded-none border-0" />
+                </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2">
                     {card.tag}
@@ -232,9 +235,8 @@ export default function HomePage() {
                   <h3 className="font-bold text-slate-900 text-lg mb-3 leading-snug">
                     {card.title}
                   </h3>
-                  <p className="text-slate-500 text-sm flex-1 leading-relaxed">
-                    {/* TODO: {card.placeholder} */}
-                    [{card.placeholder}]
+                  <p className="text-slate-500 text-sm flex-1 leading-relaxed text-justify">
+                    {card.placeholder}
                   </p>
                   <Link
                     href={card.href}
