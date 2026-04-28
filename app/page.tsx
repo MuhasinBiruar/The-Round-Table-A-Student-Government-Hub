@@ -173,14 +173,6 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
             Understanding the Full Picture
           </h2>
-          <p className="text-slate-500 mb-12 max-w-2xl leading-relaxed">
-            {/*
-              TODO: 2–3 sentence synthesis — how do the three sections together address
-              the problem of low student participation?
-            */}
-            [Synthesis intro — explain how the three pages below form a coherent response
-            to the problem. Connect them as parts of one argument.]
-          </p>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
