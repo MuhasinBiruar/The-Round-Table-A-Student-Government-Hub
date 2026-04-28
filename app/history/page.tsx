@@ -12,35 +12,35 @@ const timelineEntries = [
     era: "Early American Period · 1900s-1930s",
     title: "Modern Campus Representation Takes Shape",
     description:
-      "As public education expanded under American rule, universities began organizing student councils, campus publications, and debate unions. These early bodies trained students in elections, parliamentary procedure, and advocacy, laying the foundations of formal student representation.",
+      "Philippine Education system follows much of the American educational practices because public education expanded under American rule, universities began organizing student councils, campus publications, and debate unions (History, n.d.;Law And the Legacies of Colonial Education · the Philippines and the University of Michigan, 1870-1935 · Philippines, n.d.). These early bodies trained students in elections, and advocacy, laying the foundations of formal student representation.",
   },
   {
     id: "commonwealth",
     era: "Commonwealth Era · 1935-1941",
     title: "Student Leadership Linked to Nation-Building",
     description:
-      "During the Commonwealth, student bodies increasingly framed school governance as preparation for citizenship in a self-governing nation. Civic campaigns, student forums, and policy discussions strengthened the idea that students could be partners in shaping institutions.",
+      "During the Commonwealth, student bodies increasingly framed school governance as preparation for citizenship in a self-governing nation. Civic campaigns, student forums, and policy discussions strengthened the idea that students could be partners in shaping institutions (Culanibang, n.d.).",
   },
   {
     id: "postwar",
     era: "Post-War Republic · 1946-1960s",
     title: "Student Councils Rebuild and Expand",
     description:
-      "After World War II, schools rebuilt governance structures alongside physical campuses. Student councils and inter-school alliances became more visible, with leaders advocating for academic reforms, student welfare, and affordable education as higher education expanded nationwide.",
+      "After World War II, schools rebuilt governance structures alongside physical campuses (Wikipedia contributors, 2026). Student councils and inter-school alliances became more visible, with leaders advocating for academic reforms, student welfare, and affordable education as higher education expanded nationwide (Philippine Collegian 100 - Chapter 1.",
   },
   {
     id: "activism",
     era: "First Quarter Storm · Late 1960s-Early 1970s",
     title: "Students Take the Streets",
     description:
-      "By the late 1960s, student organizations evolved into major political actors. Mobilizations such as the First Quarter Storm and the 1971 Diliman Commune showed how campus politics could influence national debate on inequality, corruption, and democratic rights.",
+      "By the late 1960s, student organizations evolved into major political actors. Mobilizations such as the First Quarter Storm and the 1971 Diliman Commune showed how campus politics could influence national debate on inequality, corruption, and democratic rights (Philippine Collegian 100 - Chapter 1 (1969-1972), 2022).",
   },
   {
     id: "martial-law",
     era: "Martial Law · 1972-1986",
     title: "Repression, Resistance, and Underground Organizing",
     description:
-      "Martial Law sharply restricted freedom of expression and assembly on campuses. Many student councils were curtailed or dissolved, but student activism continued through church groups, community work, campus journalism, and underground networks that kept democratic engagement alive.",
+      "Martial Law sharply restricted freedom of expression and assembly on campuses (The Military's Obsession With UP: Some Historical Notes - Diktadura - the Marcos Regime Research, 2022). Many student councils were curtailed or dissolved, but student activism continued through church groups, community work, campus journalism, and underground networks that kept democratic engagement alive (Wikipedia contributors, 2026b).",
   },
   {
     id: "post-edsa",
@@ -54,7 +54,7 @@ const timelineEntries = [
     era: "Contemporary Era · 2000s-Present",
     title: "From Campaign Politics to Service and Digital Advocacy",
     description:
-      "Today, student governments balance traditional electoral politics with service delivery, mental health programs, academic policy work, and online advocacy. Participation remains uneven, but councils continue adapting through transparency initiatives, coalition work, and digital engagement.",
+      "Today, student governments balance traditional politics with service delivery, mental health programs, academic policy work, and advocacies. Participation remains uneven, but councils continue adapting through transparency initiatives, coalition and engagement.",
   },
 ];
 
@@ -196,7 +196,7 @@ export default function HistoryPage() {
           <div className="max-w-3xl">
             <div className="flex flex-col gap-5">
               <p className="text-slate-500 leading-relaxed text-justify">
-                The history of SAMAHAN shows how student government at Ateneo de Davao
+                The history of Student Governance shows how student government, along with the broader student body at Ateneo de Davao
                 moved from basic representation to a more institutional role in campus
                 life. What began as a body for student coordination and welfare gradually
                 became a durable civic structure where elections, consultation, and
@@ -217,6 +217,46 @@ export default function HistoryPage() {
 
             </div>
           </div>
+        </div>
+
+        {/* ── References ── */}
+        <div className="mt-16 pt-10 border-t border-slate-200 max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="h-px w-8 bg-amber-400" />
+            <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">
+              References
+            </span>
+          </div>
+          <ol className="list-inside space-y-3 text-sm text-slate-500 leading-relaxed">
+            <li className="pl-2">
+              Culanibang, L. O. (n.d.). <em>Client challenge.</em>{" "}
+              <a href="https://www.scribd.com/document/514968114/ED-304-REPORT" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/514968114/ED-304-REPORT</a>
+            </li>
+            <li className="pl-2">
+              History. (n.d.). <em>Department of Education.</em>{" "}
+              <a href="https://www.deped.gov.ph/about-deped/history/" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://www.deped.gov.ph/about-deped/history/</a>
+            </li>
+            <li className="pl-2">
+              Law and the Legacies of Colonial Education · The Philippines and the University of Michigan, 1870–1935 · Philippines. (n.d.).{" "}
+              <a href="https://philippines.michiganintheworld.history.lsa.umich.edu/s/exhibit/page/law-and-the-legacies-of-colonial-education" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://philippines.michiganintheworld.history.lsa.umich.edu/s/exhibit/page/law-and-the-legacies-of-colonial-education</a>
+            </li>
+            <li className="pl-2">
+              Philippine Collegian 100 - Chapter 1 (1969–1972). (2022).{" "}
+              <a href="https://sites.google.com/up.edu.ph/philippinecollegian100/chapter-1-1969-1972" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://sites.google.com/up.edu.ph/philippinecollegian100/chapter-1-1969-1972</a>
+            </li>
+            <li className="pl-2">
+              The Military&apos;s Obsession with UP: Some Historical Notes – Diktadura – The Marcos Regime Research. (2022, September 18).{" "}
+              <a href="https://diktadura.upd.edu.ph/2022/09/18/the-militarys-obsession-with-up-some-historical-notes/" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://diktadura.upd.edu.ph/2022/09/18/the-militarys-obsession-with-up-some-historical-notes/</a>
+            </li>
+            <li className="pl-2">
+              Wikipedia contributors. (2026, March 27). UP Diliman University Student Council. <em>Wikipedia.</em>{" "}
+              <a href="https://en.wikipedia.org/wiki/UP_Diliman_University_Student_Council" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/UP_Diliman_University_Student_Council</a>
+            </li>
+            <li className="pl-2">
+              Wikipedia contributors. (2026b, April 2). Student Christian Movement of the Philippines. <em>Wikipedia.</em>{" "}
+              <a href="https://en.wikipedia.org/wiki/Student_Christian_Movement_of_the_Philippines" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Student_Christian_Movement_of_the_Philippines</a>
+            </li>
+          </ol>
         </div>
       </section>
     </>
