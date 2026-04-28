@@ -14,7 +14,7 @@ export default function Footer() {
             <span className="font-semibold text-white">The Round Table</span>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed">
-            A Student Government Educational Hub for Ateneo de Davao University.
+            An Unofficial Student Government Educational Hub for Ateneo de Davao University.
           </p>
           {/* TODO: Add ADDU or SAMAHAN logo here */}
         </div>
@@ -48,16 +48,25 @@ export default function Footer() {
           <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
             About
           </h4>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            {/* TODO: Add a brief description — course, group members, semester */}
-            [Insert a short description of the project — e.g., course, group members, semester.]
-          </p>
+          <ul className="text-slate-400 text-sm leading-relaxed text-justify list-disc list-inside space-y-3">
+            <li>
+              This project is an unofficial student government educational resource created by students of Ateneo de Davao University. It is
+              created mainly to help students understand the importance of student government and encourage them to participate in it.
+            </li>
+            <li>
+              The content is based on publicly available information and research, and is not officially affiliated with Ateneo de Davao University or SAMAHAN.
+            </li>
+            <li>
+              This project is in coordination with Life and Works of Rizal as a way to practice what Rizal has taught us
+              about helping others.
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className="border-t border-slate-800/60 py-4 px-6">
         <p className="text-center text-xs text-slate-600">
-          &copy; {new Date().getFullYear()} The Round Table &middot; Ateneo de Davao University
+          &copy; {new Date().getFullYear()} {" "} The Round Table &middot; An Unofficial Student Government Educational Hub for Ateneo de Davao University
         </p>
       </div>
     </footer>

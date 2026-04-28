@@ -2,9 +2,7 @@ import Link from "next/link";
 import { Image } from 'primereact/image';
 import contestedgraph from "../public/images/contestedgraph.png";
 import samahanVoterChart from "./resources/images/samahan_voter_turnout.png";
-import ImagePlaceholder from "./components/ImagePlaceholder";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-import whyparticipate from "./resources/images/whyparticipate.png";
 
 // ─── Reusable hero eyebrow label ────────────────────────────────────────────
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -57,12 +55,6 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.035)_1px,transparent_1px)] bg-size-[28px_28px] pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center flex flex-col items-center">
-          {/* TODO: Replace with actual <Image> (AdDU seal or SAMAHAN logo) */}
-          <ImagePlaceholder
-            label="Logo · ~120×120 px"
-            className="w-24 h-24 rounded-2xl mb-8 bg-slate-900! border-slate-700!"
-          />
-
           <Eyebrow>Ateneo de Davao University</Eyebrow>
 
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-4 leading-tight">
@@ -150,7 +142,7 @@ export default function HomePage() {
 
               {/* Stat callout */}
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
-                
+
                 <figure className="flex flex-col items-center">
                   <Image
                     src={samahanVoterChart.src}
@@ -195,29 +187,28 @@ export default function HomePage() {
               {
                 href: "/positions",
                 tag: "Governance",
-                src: "",
+                header: "History of Student Governments in the Philippines",
                 title: "SAMAHAN Positions",
                 placeholder:
-                  "How does knowing the SAMAHAN positions help address the participation problem? 2–3 sentences.",
+                  "How does knowing the SAMAHAN positions help address the participation problem? What are the positions and what do they do?",
                 cta: "Explore positions",
               },
               {
                 href: "/history",
                 tag: "Context",
-                src: "",
+                header: "Organizational Structure",
                 title: "History of Student Governments",
                 placeholder:
-                  "Why does historical context matter here? How does knowing the history reframe the problem? 2–3 sentences.",
+                  "Why does historical context matter here? How does knowing the history reframe the problem?",
                 cta: "Read the history",
               },
               {
                 href: "/participate",
                 tag: "Action",
-                src: whyparticipate.src,
+                header: "Why Participate",
                 title: "Why Participate?",
                 placeholder:
-                  "Low student participation hollows out the student government, directly weakening SAMAHAN's mandate and its "+
-                  "credibility to negotiate effectively with the university administration. By participating, students ensure they actually have a say in the concrete issues that impact their daily lives, such as tuition consultations, academic guidelines, and campus safety.",
+                  "Why does participation matter? How does it connect to the problem of low participation?",
                 cta: "Find out why",
               },
             ].map((card) => (
@@ -225,8 +216,8 @@ export default function HomePage() {
                 key={card.href}
                 className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
               >
-                <div className="w-full h-44 overflow-hidden bg-slate-100">
-                  <Image src={card.src} alt={`Photo for "${card.title}" card`} className="w-full h-full object-cover rounded-none border-0" />
+                <div className="w-full h-44 bg-slate-900 flex items-center justify-center p-6">
+                  <p className="text-white text-2xl font-bold text-center leading-snug">{card.header}</p>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2">
@@ -265,12 +256,10 @@ export default function HomePage() {
         <div className="relative max-w-2xl mx-auto">
           <Eyebrow>Get Involved</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            {/* TODO: CTA headline */}
-            [Headline — e.g., Your voice shapes Ateneo. Use it.]
+            Your choices shapes Ateneo. Use it.
           </h2>
           <p className="text-slate-400 mb-10 leading-relaxed">
-            {/* TODO: Supporting sentence */}
-            [One sentence reinforcing the call to act — tie it back to the problem.]
+            Exercise your rights and make a difference.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link

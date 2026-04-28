@@ -77,7 +77,7 @@ export default function HistoryPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 max-w-3xl leading-tight">
             History of Student Governments in the Philippines
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
+          <p className="text-slate-400 text-lg max-w-2xl leading-relaxed text-justify">
             Student governance in the Philippines was built through decades of
             organizing, reform, and resistance. Knowing this history helps us see why
             participation is not just about voting day, but about whether students feel
@@ -103,7 +103,7 @@ export default function HistoryPage() {
             Where It All Began
           </h2>
           <div className="flex flex-col gap-4">
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-500 leading-relaxed text-justify">
               Student governments in the Philippines emerged as campuses became training
               grounds for public leadership. What began as school-based councils and
               civic clubs gradually developed into elected institutions that gave
@@ -111,7 +111,7 @@ export default function HistoryPage() {
               bodies were shaped by colonial transition, war, social movements, and
               constitutional change.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-500 leading-relaxed text-justify">
               This history matters because participation today did not appear overnight.
               Every election cycle, advocacy campaign, and student consultation in
               universities like Ateneo de Davao stands on decades of organizing,
@@ -166,7 +166,7 @@ export default function HistoryPage() {
                       <h3 className="text-base font-bold text-slate-900 mt-1 mb-3 leading-snug">
                         {entry.title}
                       </h3>
-                      <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                      <p className="text-slate-500 text-sm leading-relaxed mb-4 text-justify">
                         {entry.description}
                       </p>
                     </div>
@@ -195,7 +195,7 @@ export default function HistoryPage() {
 
           <div className="max-w-3xl">
             <div className="flex flex-col gap-5">
-              <p className="text-slate-500 leading-relaxed">
+              <p className="text-slate-500 leading-relaxed text-justify">
                 The history of SAMAHAN shows how student government at Ateneo de Davao
                 moved from basic representation to a more institutional role in campus
                 life. What began as a body for student coordination and welfare gradually
@@ -205,7 +205,7 @@ export default function HistoryPage() {
                 trajectory of Philippine student governance: participation grows when
                 institutions make student voice visible, legitimate, and consequential.
               </p>
-              <p className="text-slate-500 leading-relaxed">
+              <p className="text-slate-500 leading-relaxed text-justify">
                 Seeing SAMAHAN through a historical lens matters because it clarifies why
                 present-day participation challenges cannot be reduced to student
                 disinterest alone. They are also questions of institutional trust,

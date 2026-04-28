@@ -168,7 +168,7 @@ function PageHero() {
           Organizational <span className="text-slate-400">Structure</span>
         </h1>
         <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-          Explore the offices and departments that drive the SAMAHAN Student Government's 
+          Explore the offices and departments that drive the SAMAHAN Student Government&apos;s 
           initiatives at Ateneo de Davao University.
         </p>
       </div>
