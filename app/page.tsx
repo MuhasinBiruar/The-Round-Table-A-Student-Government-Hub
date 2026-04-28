@@ -264,24 +264,8 @@ export default function HomePage() {
               <a href="https://www.facebook.com/share/p/18MZwpHkPG/" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/p/18MZwpHkPG/</a>
             </li>
             <li className="pl-2">
-              Escueta, N. G., &amp; Gochian, A. B. (2025, March 3). Beyond the ballot: Unpacking the relevance of student governments. <em>The GUIDON.</em>{" "}
-              <a href="https://theguidon.com/2025/03/beyond-the-ballot-unpacking-the-relevance-of-student-governments/" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://theguidon.com/2025/03/beyond-the-ballot-unpacking-the-relevance-of-student-governments/</a>
-            </li>
-            <li className="pl-2">
-              FEU produces low voter turnout, prompts &lsquo;failed election&rsquo; cases. (n.d.).{" "}
-              <a href="https://feuadvocate.net/feu-produces-low-voter-turnout-prompts-failed-election-cases/" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://feuadvocate.net/feu-produces-low-voter-turnout-prompts-failed-election-cases/</a>
-            </li>
-            <li className="pl-2">
-              Student Governments | Education | Research Starters | EBSCO Research. (n.d.). <em>EBSCO.</em>{" "}
-              <a href="https://www.ebsco.com/research-starters/education/student-governments" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://www.ebsco.com/research-starters/education/student-governments</a>
-            </li>
-            <li className="pl-2">
               Suh, R. (2021). Student Governments | Education | Research Starters | EBSCO Research. <em>EBSCO.</em>{" "}
               <a href="https://www.ebsco.com/research-starters/education/student-governments" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://www.ebsco.com/research-starters/education/student-governments</a>
-            </li>
-            <li className="pl-2">
-              Tiongzon, J. M., Sumicad, R., Adolfo, A. L. L., Margallo, D., &amp; Jumao-As, J. M. (2024). Unveiling the apathy: Understanding the causes of student disengagement in student governance. <em>International Journal of Law and Politics Studies, 6</em>(5), 30–47.{" "}
-              <a href="https://doi.org/10.32996/ijlps.2024.6.5.3" className="text-amber-500 hover:text-amber-600 underline break-all" target="_blank" rel="noopener noreferrer">https://doi.org/10.32996/ijlps.2024.6.5.3</a>
             </li>
           </ol>
         </div>
